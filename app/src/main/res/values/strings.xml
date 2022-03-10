@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PartnerOne Chat</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_room">Enter Room</string>
+    <string name="message">Message</string>
+    <string name="ip_address">IP address</string>
+    <string name="port_number">Port Number</string>
+    <string name="move_chat_to_bottom">Move chat to bottom</string>
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.bajaj.partneronechat.MultipleImageSentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/sent_image_background"
+            android:maxWidth="@dimen/default_max_image_width"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.6">
+
+            <ImageView
+                android:id="@+id/sender_image"
+                setSentChatImage="@{itemViewModel}"
+                imagePosition="@{0}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/round_outline"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@color/black"/>
+
+            <TextView
+                android:id="@+id/sent_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sent_time_text_bottom_margin"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@{itemViewModel.imagesList[0].sentTimeAsFormatted}"
+                android:textSize="@dimen/default_time_text_size"
+                android:textColor="@color/sent_time_text_color"
+                app:layout_constraintBottom_toBottomOf="@id/sender_image"
+                app:layout_constraintEnd_toStartOf="@id/message_status"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/sender_image"
+                app:layout_constraintTop_toTopOf="@id/sender_image"
+                app:layout_constraintVertical_bias="1"
+                tools:text="20:22" />
+
+            <ImageView
+                android:id="@+id/message_status"
+                android:layout_width="@dimen/tick_size"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_round_check_24"
+                app:layout_constraintBottom_toBottomOf="@id/sent_time"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/sent_time" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
